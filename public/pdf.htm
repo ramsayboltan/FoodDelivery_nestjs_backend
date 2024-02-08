@@ -1,0 +1,189 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Details</title>
+<style>
+   body, table {
+    margin: 0;
+    padding: 0;
+}
+
+/* Apply a background color and center the content */
+body {
+    background-color: #f2f2f2;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+/* Style the container */
+.container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Style the headings */
+h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+h2 {
+    font-size: 20px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+/* Style the tables */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Style the span containing numbers */
+span {
+    font-weight: bold;
+}
+
+/* Style the first column of the items table
+.items-table th:first-child {
+    width: 60%;
+}
+
+/* Style the second column of the items table */
+/* .items-table th:nth-child(2),
+.items-table td:nth-child(2) {
+    width: 20%;
+} */
+
+/* Style the third column of the items table */
+/* .items-table th:nth-child(3),
+.items-table td:nth-child(3) {
+    width: 20%;
+} */ */
+.items-table th {
+  background-color: #f2f2f2;
+  text-align: left;
+  padding: 8px;
+  border-bottom: 1px solid #ddd;
+}
+
+/* Style table data cells */
+.items-table td {
+  padding: 8px;
+  border-bottom: 1px solid #ddd;
+}
+
+/* Style alternating rows */
+.items-table tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+/* Style the spans inside table cells */
+.items-table td span {
+  display: block;
+  font-weight: bold;
+}
+
+#generate-pdf {
+    background-color: blue; /* Change this to the specific shade of blue you prefer */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 20px;
+}
+
+#generate-pdf:hover {
+    background-color: #0056b3;
+}
+
+</style>
+</head>
+<body>
+    <div id="order-details" class="container">
+        <h1>Order Details</h1>
+        <table class="order-table">
+            <tr>
+                <th>Order ID:</th>
+                <td><span id="order-id">{{order-id}}</span></td>
+                <th>Order Date:</th>
+                <td><span id="order-date">{{order-date}}</span></td>
+            </tr>
+            <tr>
+                <th>Delivery Address:</th>
+                <td colspan="3"><span id="delivery-address">{{delivery_address}}</span></td>
+            </tr>
+        </table>
+        <h2>Items</h2>
+        <table class="items-table">
+            <thead>
+                <tr>
+                    <th>Item Name</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                </tr>
+            </thead>
+            <tbody id="items-list">
+                <tr>
+                    <td><span id="itemName">{{itemName}}</span></td>
+                    <td><span id="itemQuantity">{{itemQuantity}}</span></td>
+                    <td><span id="itemPrice">{{itemPrice}}</span></td>
+                </tr>
+                <!-- You can use JavaScript to dynamically generate additional rows if needed -->
+            </tbody>
+        </table>
+        <table class="order-table">
+            <tr>
+                <th>Delivery Fee:</th>
+                <td><span id="delivery-fee">{{delivery_fee}}</span></td>
+                <th>Tax:</th>
+                <td><span id="tax">{{tax}}</span></td>
+            </tr>
+            <tr>
+                <th>Payment Method:</th>
+                <td><span id="payment-method">{{payment_method}}</span></td>
+                <th>Card Number:</th>
+                <td><span id="card-number">{{card_number}}</span></td>
+            </tr>
+            <tr>
+                <th>Total Amount:</th>
+                <td><span id="total-amount">{{total_amount}}</span></td>
+                <th>Restaurant Name:</th>
+                <td><span id="restaurant-name">{{restaurant_name}}</span></td>
+            </tr>
+            <tr>
+                <th>Restaurant Contact:</th>
+                <td><span id="restaurant-contact">{{restaurant_contact}}</span></td>
+                <th>Driver Name:</th>
+                <td><span id="driver-name">{{driver_name}}</span></td>
+            </tr>
+            <tr>
+                <th>Driver Contact:</th>
+                <td><span id="driver-contact">{{driver_contact}}</span></td>
+                <th>Notes:</th>
+                <td><span id="notes">{{notes}}</span></td>
+            </tr>
+        </table>
+        <button id="generate-pdf">Generate PDF</button>
+    </div>
+    
+</body>
+</html>
